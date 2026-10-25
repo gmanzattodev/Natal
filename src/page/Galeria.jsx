@@ -1,39 +1,46 @@
 import { useEffect, useState } from "react";
 import "../assets/css/Galeria.css";
+import galeria1 from "../assets/images/galeria-01.jpeg"
+import galeria2 from "../assets/images/galeria-02.jpeg"
+import galeria3 from "../assets/images/galeria-03.jpeg"
+import galeria4 from "../assets/images/galeria-04.jpeg"
+import galeria5 from "../assets/images/galeria-05.jpeg"
+import galeria6 from "../assets/images/galeria-06.jpeg"
+
 
 const fotos = [
   {
-    src: "/images/galeria-01.jpeg",
+    src: galeria1,
     alt: "Árvore de Natal iluminada em um cenário elegante",
     categoria: "CENÁRIOS",
     tamanho: "galeria-alta",
   },
   {
-    src: "/images/galeria-02.jpeg",
+    src: galeria2,
     alt: "Presentes natalinos em tons de vinho e dourado",
     categoria: "DETALHES",
     tamanho: "",
   },
   {
-    src: "/images/galeria-03.jpeg",
+    src: galeria3,
     alt: "Luzes douradas e decoração natalina",
     categoria: "MAGIA",
     tamanho: "",
   },
   {
-    src: "/images/galeria-04.jpeg",
+    src: galeria4,
     alt: "Decoração de Natal em verde e vermelho",
     categoria: "TRADIÇÃO",
     tamanho: "galeria-larga",
   },
   {
-    src: "/images/galeria-05.jpeg",
+    src: galeria5,
     alt: "Enfeites e ramos de pinheiro natalinos",
     categoria: "DETALHES",
     tamanho: "",
   },
   {
-    src: "/images/galeria-06.jpeg",
+    src: galeria6,
     alt: "Ambiente natalino aconchegante iluminado por velas",
     categoria: "MEMÓRIAS",
     tamanho: "",
