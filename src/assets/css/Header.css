@@ -1,0 +1,351 @@
+
+:root {
+  --header-green: #071d15;
+  --header-green-light: #12372a;
+  --header-gold: #d6b879;
+  --header-cream: #f4e9d8;
+  --header-red: #8b1e2d;
+}
+
+.Header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100px;
+  padding: 0 8%;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    height 0.45s ease,
+    padding 0.45s ease,
+    background 0.45s ease,
+    border-color 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+/* Header ao rolar a página */
+
+.Header.header-scrolled {
+  height: 76px;
+  padding: 0 8%;
+  background: rgba(7, 29, 21, 0.88);
+  border-bottom-color: rgba(214, 184, 121, 0.13);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Logo */
+
+.header-logo {
+  position: relative;
+  z-index: 1002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 68px;
+  flex-shrink: 0;
+}
+
+.header-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+.header-logo:hover img {
+  transform: scale(1.08) rotate(-4deg);
+  filter: drop-shadow(0 0 12px rgba(214, 184, 121, 0.35));
+}
+
+/* Navegação */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(24px, 3.3vw, 52px);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 35px;
+}
+
+.navbar a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 0;
+  color: rgba(244, 233, 216, 0.75);
+  text-decoration: none;
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  transition: color 0.3s ease;
+}
+
+.navbar a::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 4px;
+  width: 100%;
+  height: 1px;
+  background: var(--header-gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.navbar a:hover,
+.navbar a:focus-visible {
+  color: var(--header-cream);
+}
+
+.navbar a:hover::after,
+.navbar a:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Ações */
+
+.header-acoes {
+  position: relative;
+  z-index: 1002;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.header-agendar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 1px solid rgba(214, 184, 121, 0.5);
+  border-radius: 2px;
+  color: var(--header-cream);
+  text-decoration: none;
+  font-family: "Manrope", sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease;
+}
+
+.header-agendar i {
+  color: var(--header-gold);
+  font-size: 16px;
+  transition:
+    transform 0.35s ease,
+    color 0.35s ease;
+}
+
+.header-agendar:hover {
+  background: var(--header-gold);
+  border-color: var(--header-gold);
+  color: var(--header-green);
+  transform: translateY(-2px);
+}
+
+.header-agendar:hover i {
+  color: var(--header-green);
+  transform: translate(3px, -3px);
+}
+
+/* Botão mobile */
+
+.menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(214, 184, 121, 0.35);
+  border-radius: 2px;
+  background: rgba(18, 55, 42, 0.35);
+  color: var(--header-cream);
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.menu-toggle i {
+  font-size: 24px;
+}
+
+.menu-toggle:hover,
+.menu-toggle.toggle-ativo {
+  background: var(--header-red);
+  border-color: var(--header-red);
+}
+
+.menu-toggle:focus-visible,
+.header-agendar:focus-visible,
+.header-logo:focus-visible {
+  outline: 2px solid var(--header-gold);
+  outline-offset: 5px;
+}
+
+/* Tablet e celular */
+
+@media (max-width: 1000px) {
+  .Header,
+  .Header.header-scrolled {
+    height: 78px;
+    padding: 0 6%;
+  }
+
+  .header-logo {
+    width: 57px;
+    height: 57px;
+  }
+
+  .navbar.navbar-mobile {
+    position: fixed;
+    z-index: 1001;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+
+    margin: 0;
+    padding: 100px 25px 50px;
+
+    background:
+      radial-gradient(
+        ellipse at 50% 40%,
+        rgba(30, 81, 40, 0.35),
+        transparent 55%
+      ),
+      rgba(5, 23, 16, 0.98);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    transform: translateY(-12px);
+
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease,
+      visibility 0.35s ease;
+  }
+
+  .navbar.navbar-mobile.menu-aberto {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .navbar.navbar-mobile a {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(29px, 6vw, 42px);
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--header-cream);
+  }
+
+  .navbar.navbar-mobile a::after {
+    bottom: 3px;
+  }
+
+  .header-acoes {
+    gap: 12px;
+  }
+
+  .header-agendar {
+    min-height: 40px;
+    padding: 0 13px;
+    gap: 8px;
+    font-size: 8px;
+    letter-spacing: 0.8px;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .header-menu-aberto {
+    background: rgba(7, 29, 21, 0.95);
+  }
+}
+
+/* Celulares pequenos */
+
+@media (max-width: 480px) {
+  .Header,
+  .Header.header-scrolled {
+    height: 72px;
+    padding: 0 5%;
+  }
+
+  .header-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .header-acoes {
+    gap: 9px;
+  }
+
+  .header-agendar {
+    min-height: 38px;
+    padding: 0 10px;
+    font-size: 7px;
+    letter-spacing: 0.4px;
+  }
+
+  .header-agendar i {
+    font-size: 14px;
+  }
+
+  .menu-toggle {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Acessibilidade */
+
+@media (prefers-reduced-motion: reduce) {
+  .Header *,
+  .Header *::before,
+  .Header *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

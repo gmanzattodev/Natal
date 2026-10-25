@@ -1,0 +1,294 @@
+
+.Contato {
+  --contato-verde: #071d15;
+  --contato-dourado: #d6b879;
+  --contato-creme: #f4e9d8;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 650px;
+  padding: 110px 7% 30px;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      ellipse at 50% 40%,
+      rgba(35, 83, 59, 0.32),
+      transparent 65%
+    ),
+    var(--contato-verde);
+  color: var(--contato-creme);
+  text-align: center;
+}
+
+/* Luzes decorativas */
+.contato-luz {
+  position: absolute;
+  z-index: -1;
+  top: 12%;
+  left: 50%;
+  width: 420px;
+  height: 420px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(214, 184, 121, 0.07);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.Contato::before,
+.Contato::after {
+  position: absolute;
+  content: "";
+  width: 180px;
+  height: 180px;
+  border: 1px solid rgba(214, 184, 121, 0.13);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.Contato::before {
+  top: 60px;
+  left: -100px;
+}
+
+.Contato::after {
+  right: -100px;
+  bottom: 100px;
+}
+
+/* Conteúdo principal */
+.contato-conteudo {
+  width: 100%;
+  max-width: 760px;
+  opacity: 0;
+  transform: translateY(35px);
+  transition:
+    opacity 1s ease,
+    transform 1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.Contato.contato-visivel .contato-conteudo {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contato-etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  color: var(--contato-dourado);
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+
+.contato-ponto {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--contato-dourado);
+  box-shadow: 0 0 12px rgba(214, 184, 121, 0.7);
+}
+
+.contato-conteudo h2 {
+  margin: 0;
+  color: var(--contato-creme);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 400;
+  line-height: 0.98;
+  letter-spacing: -2px;
+}
+
+.contato-conteudo h2 span {
+  color: var(--contato-dourado);
+  font-style: italic;
+}
+
+.contato-descricao {
+  max-width: 440px;
+  margin: 28px auto 34px;
+  color: rgba(244, 233, 216, 0.7);
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.9;
+}
+
+/* Botão de contato */
+.contato-botao {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 58px;
+  padding: 0 27px;
+  border: 1px solid var(--contato-dourado);
+  border-radius: 2px;
+  background: var(--contato-dourado);
+  color: #10251a;
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.contato-botao > i:first-child {
+  font-size: 20px;
+}
+
+.contato-seta {
+  margin-left: 6px;
+  font-size: 17px;
+  transition: transform 0.3s ease;
+}
+
+.contato-botao:hover {
+  transform: translateY(-4px);
+  background: transparent;
+  color: var(--contato-dourado);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.16);
+}
+
+.contato-botao:hover .contato-seta {
+  transform: translate(3px, -3px);
+}
+
+.contato-botao:focus-visible,
+.contato-rodape a:focus-visible {
+  outline: 2px solid var(--contato-creme);
+  outline-offset: 5px;
+}
+
+/* Separador decorativo */
+.contato-divisor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: 220px;
+  margin: 55px auto 22px;
+  color: var(--contato-dourado);
+}
+
+.contato-divisor span {
+  flex: 1;
+  height: 1px;
+  background: rgba(214, 184, 121, 0.25);
+}
+
+.contato-divisor i {
+  font-size: 17px;
+}
+
+.contato-frase {
+  color: rgba(244, 233, 216, 0.65);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 21px;
+  font-style: italic;
+}
+
+/* Rodapé da seção */
+.contato-rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  margin-top: 100px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(244, 233, 216, 0.12);
+}
+
+.contato-rodape span,
+.contato-rodape a {
+  color: rgba(244, 233, 216, 0.48);
+  font-family: "Manrope", sans-serif;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.contato-rodape a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contato-rodape a:hover {
+  color: var(--contato-dourado);
+}
+
+/* Tablet e celular */
+@media (max-width: 768px) {
+  .Contato {
+    min-height: 600px;
+    padding: 90px 6% 24px;
+  }
+
+  .contato-conteudo h2 {
+    font-size: clamp(48px, 11vw, 70px);
+    letter-spacing: -1px;
+  }
+
+  .contato-descricao {
+    max-width: 360px;
+    font-size: 13px;
+  }
+
+  .contato-rodape {
+    margin-top: 75px;
+  }
+
+  .contato-rodape span,
+  .contato-rodape a {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 420px) {
+  .contato-etiqueta {
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .contato-botao {
+    gap: 11px;
+    padding: 0 18px;
+  }
+
+  .contato-rodape {
+    align-items: flex-start;
+  }
+
+  .contato-rodape span {
+    max-width: 170px;
+    line-height: 1.8;
+    text-align: left;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contato-conteudo,
+  .contato-botao,
+  .contato-seta {
+    transition: none;
+  }
+
+  .contato-conteudo {
+    opacity: 1;
+    transform: none;
+  }
+}

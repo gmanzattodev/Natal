@@ -1,0 +1,446 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&display=swap");
+
+:root {
+  --natal-green: #12372a;
+  --natal-green-light: #1e5128;
+  --natal-red: #d8212b;
+  --natal-wine: #8b1e2d;
+  --natal-gold: #d6b879;
+  --natal-cream: #f4e9d8;
+}
+
+.Hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  padding: 120px 9%;
+  overflow: hidden;
+  color: var(--natal-cream);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 19, 14, 0.96) 0%,
+      rgba(7, 29, 21, 0.86) 36%,
+      rgba(7, 29, 21, 0.35) 70%,
+      rgba(4, 15, 11, 0.28) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(4, 15, 11, 0.72),
+      transparent 35%
+    ),
+    url("../images/fundoHero.jpeg") center / cover no-repeat,
+    #071d15;
+
+  perspective: 1200px;
+}
+
+/* Iluminação cinematográfica */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at 72% 35%,
+      rgba(214, 184, 121, 0.15),
+      transparent 36%
+    ),
+    radial-gradient(
+      ellipse at 10% 90%,
+      rgba(30, 81, 40, 0.25),
+      transparent 42%
+    );
+
+  animation: hero-light 8s ease-in-out infinite alternate;
+}
+
+/* Conteúdo principal */
+
+.info-hero {
+  position: relative;
+  z-index: 2;
+  width: min(650px, 100%);
+
+  transform-style: preserve-3d;
+  animation: hero-entrance 1.2s cubic-bezier(0.2, 0.7, 0.2, 1)
+    both;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 34px;
+
+  color: var(--natal-gold);
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+
+.hero-line {
+  display: block;
+  width: 36px;
+  height: 1px;
+  background: var(--natal-gold);
+}
+
+.info-hero h3 {
+  margin: 0 0 -28px 4px;
+
+  color: var(--natal-cream);
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(13px, 1.5vw, 19px);
+  font-weight: 300;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.info-hero h1 {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(110px, 17vw, 220px);
+  font-weight: 500;
+  letter-spacing: -9px;
+  line-height: 1.08;
+
+  color: var(--natal-cream);
+  text-shadow: 0 10px 60px rgba(0, 0, 0, 0.2);
+
+  animation: title-reveal 1.5s ease both;
+}
+
+.info-hero h1 span {
+  color: var(--natal-gold);
+}
+
+.info-hero p {
+  max-width: 420px;
+  margin: 24px 0 35px;
+
+  color: rgba(244, 233, 216, 0.78);
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(13px, 1.15vw, 16px);
+  font-weight: 300;
+  line-height: 2;
+  letter-spacing: 0.5px;
+}
+
+/* Botão */
+
+.hero-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  min-height: 56px;
+  padding: 0 27px;
+
+  overflow: hidden;
+  border: 1px solid rgba(214, 184, 121, 0.75);
+  border-radius: 3px;
+
+  background: var(--natal-wine);
+  color: var(--natal-cream);
+  text-decoration: none;
+
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+
+  transition:
+    background 0.4s ease,
+    color 0.4s ease,
+    border-color 0.4s ease,
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.hero-button i {
+  font-size: 18px;
+  transition: transform 0.4s ease;
+}
+
+.hero-button:hover {
+  background: var(--natal-gold);
+  border-color: var(--natal-gold);
+  color: #10271c;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.hero-button:hover i {
+  transform: translateX(5px);
+}
+
+/* Indicador inferior */
+
+.hero-footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 65px;
+
+  color: rgba(244, 233, 216, 0.55);
+  font-family: "Manrope", sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+}
+
+.hero-scroll-line {
+  width: 45px;
+  height: 1px;
+  background: var(--natal-gold);
+  transform-origin: left;
+  animation: scroll-line 2s ease-in-out infinite;
+}
+
+/* Detalhe lateral */
+
+.hero-side-note {
+  position: absolute;
+  z-index: 2;
+  right: 4%;
+  bottom: 12%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+
+  color: rgba(244, 233, 216, 0.6);
+  font-family: "Manrope", sans-serif;
+  font-size: 8px;
+  letter-spacing: 2px;
+  writing-mode: vertical-rl;
+}
+
+.hero-side-note span:first-child {
+  color: var(--natal-gold);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 30px;
+  letter-spacing: 0;
+}
+
+/* Partículas luminosas */
+
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-particles span {
+  position: absolute;
+  left: var(--x);
+  bottom: -10px;
+
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+
+  background: var(--natal-gold);
+  box-shadow: 0 0 12px 2px rgba(214, 184, 121, 0.4);
+
+  opacity: 0;
+  animation: golden-dust 9s linear infinite;
+  animation-delay: var(--delay);
+}
+
+.hero-bottom-glow {
+  position: absolute;
+  z-index: 0;
+  right: 5%;
+  bottom: -180px;
+
+  width: 550px;
+  height: 300px;
+  border-radius: 50%;
+
+  background: rgba(30, 81, 40, 0.2);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+/* Animações */
+
+@keyframes hero-entrance {
+  from {
+    opacity: 0;
+    transform: translate3d(-35px, 15px, -80px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes title-reveal {
+  from {
+    opacity: 0;
+    letter-spacing: 5px;
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    letter-spacing: -9px;
+    filter: blur(0);
+  }
+}
+
+@keyframes golden-dust {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.4);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0.8;
+  }
+
+  75% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translate3d(35px, -100vh, 60px) scale(1.3);
+    opacity: 0;
+  }
+}
+
+@keyframes hero-light {
+  from {
+    opacity: 0.6;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scroll-line {
+  0%,
+  100% {
+    transform: scaleX(0.5);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* Responsividade */
+
+@media (min-width: 1500px) {
+  .Hero {
+    padding-left: 12%;
+  }
+}
+
+@media (max-width: 768px) {
+  .Hero {
+    min-height: 92svh;
+    padding: 130px 7% 70px;
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(4, 19, 14, 0.91),
+        rgba(4, 19, 14, 0.66)
+      ),
+      linear-gradient(
+        0deg,
+        rgba(4, 15, 11, 0.8),
+        transparent 80%
+      ),
+      url("../assets/images/natal-hero.webp") 62% center / cover no-repeat,
+      #071d15;
+  }
+
+  .hero-eyebrow {
+    gap: 10px;
+    margin-bottom: 30px;
+    font-size: 8px;
+    letter-spacing: 2.5px;
+  }
+
+  .info-hero h3 {
+    margin-bottom: -12px;
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+
+  .info-hero h1 {
+    font-size: clamp(100px, 25vw, 160px);
+    letter-spacing: -5px;
+  }
+
+  .info-hero p {
+    max-width: 350px;
+    font-size: 13px;
+    line-height: 1.9;
+  }
+
+  .hero-button {
+    min-height: 52px;
+    gap: 18px;
+    padding: 0 20px;
+    font-size: 9px;
+  }
+
+  .hero-footer {
+    margin-top: 55px;
+    font-size: 8px;
+  }
+
+  .hero-side-note {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .Hero {
+    padding-right: 6%;
+    padding-left: 6%;
+  }
+
+  .info-hero h1 {
+    font-size: 100px;
+  }
+
+  .info-hero p br {
+    display: none;
+  }
+
+  .info-hero p {
+    max-width: 300px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Hero *,
+  .Hero *::before,
+  .Hero *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
